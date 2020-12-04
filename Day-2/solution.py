@@ -16,6 +16,8 @@ for line in f:
 
     valid_second += (passwd[fr - 1] == let) ^ (passwd[to - 1] == let)
 
+f.close()
+
 print("First part: ", valid_first)
 print("Second part: ", valid_second)
 
