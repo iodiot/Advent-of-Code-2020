@@ -21,10 +21,10 @@ for action in actions:
         ship_2 += waypoint * step
     elif let == 'L':
         dir *= complex(1j) ** (step // 90)
-        waypoint *= (complex(1j) ** (step // 90))
+        waypoint *= complex(1j) ** (step // 90)
     elif let == 'R':
         dir *= complex(-1j) ** (step // 90)
-        waypoint *= (complex(-1j) ** (step // 90))
+        waypoint *= complex(-1j) ** (step // 90)
     else:
         raise Exception
 
