@@ -31,7 +31,7 @@ def run(code):
 
 lines = [line.strip() for line in open('input.txt')]
 
-print "First part: ", run(lines)[0]
+print("First part: ", run(lines)[0])
 
 for i in range(0, len(lines)):
     tmp = lines[i]
@@ -52,4 +52,4 @@ for i in range(0, len(lines)):
     lines[i] = tmp
 
     if result[1]:
-        print "Second part: ", result[0]
+        print("Second part: ", result[0])

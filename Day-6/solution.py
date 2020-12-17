@@ -7,7 +7,7 @@ f.close()
 groups = map(lambda x: x.replace('\n', ''), ''.join(lines).split('\n\n'))
 sets = map(lambda x: len(set(x)), groups)
 
-print "First part: ", sum(sets)
+print("First part: ", sum(sets))
 
 groups = ''.join(lines).split('\n\n')
 
@@ -23,4 +23,4 @@ for group in groups:
 
     count += len(s)
 
-print "Second part: ", count
+print("Second part: ", count)

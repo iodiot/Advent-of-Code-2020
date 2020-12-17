@@ -31,5 +31,5 @@ f.close()
 
 ids = map(compute_seat_id, lines)
 
-print "First part: ", max(ids)
-print "Second part:", sum(range(1, max(ids) + 1)) - sum(ids) - sum(range(1, min(ids)))
+print("First part: ", max(ids))
+print("Second part:", sum(range(1, max(ids) + 1)) - sum(ids) - sum(range(1, min(ids))))

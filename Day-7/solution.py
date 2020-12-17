@@ -52,6 +52,6 @@ for line in f:
 
 f.close()
 
-print "First part: ", sum(map(lambda x: contains_shiny_bag(rules, x), rules.keys()))
-print "Second part: ", count_bags_inside(rules, 'shiny gold bag')
+print("First part: ", sum(map(lambda x: contains_shiny_bag(rules, x), rules.keys())))
+print("Second part: ", count_bags_inside(rules, 'shiny gold bag'))
 

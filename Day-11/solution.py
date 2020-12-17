@@ -72,5 +72,5 @@ def run(count_func, tolerance):
     return ''.join(map(lambda x: ''.join(x), layout)).count('#')
 
 
-print ("First part: ", run(count_adjacent, 4))
-print ("Second part: ", run(count_visible, 5))
+print("First part: ", run(count_adjacent, 4))
+print("Second part: ", run(count_visible, 5))

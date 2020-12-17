@@ -34,5 +34,5 @@ for i in range(0, len(numbers) - 1):
         elif sum(seq) > invalid_num:
             break
 
-print "First part: ", invalid_num
-print "Second part: ", enc_weakness
+print("First part: ", invalid_num)
+print("Second part: ", enc_weakness)
