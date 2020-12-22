@@ -63,8 +63,6 @@ def generate_variants_for(tile):
         new_tile = rotate(tile, rot)
         variants.append(new_tile)
         variants.append(flip(new_tile, horizontal=False))
-        variants.append(flip(new_tile, horizontal=True))
-        variants.append(flip(flip(new_tile, horizontal=True), horizontal=False))
 
     return variants
 
@@ -95,7 +93,6 @@ for i in range(0, len(lines), 12):
             tiles[tile_id][(x, y)] = lines[i + y + 1][x]
 
 variants = {}
-
 
 for tile_id in tiles.keys():
     variants[tile_id] = generate_variants_for(tiles[tile_id])

@@ -1,8 +1,8 @@
 # --- Day 21: Allergen Assessment ---
 
-foods = []
-
+foods = {}
 all_ingredients = set()
+freqs = {}
 
 with open('input.txt') as f:
     for line in f:
@@ -11,34 +11,46 @@ with open('input.txt') as f:
             ingredients = ingredients.strip(' ').split(' ')
             allergens = allergens.strip('\n').strip(')').split(', ')
 
-            foods.append([set(ingredients), set(allergens)])
+            all_ingredients.update(set(ingredients))
 
             for i in ingredients:
-                all_ingredients.add(i)
+                if i not in freqs:
+                    freqs[i] = 1
+                else:
+                    freqs[i] = freqs[i] + 1
+
+            for a in allergens:
+                if a not in foods:
+                    foods[a] = set(ingredients)
+                else:
+                    foods[a].intersection_update(set(ingredients))
 
 
-allergen_free = set()
+free_ingredients = all_ingredients.copy()
 
-for ingr in all_ingredients:
-    free = True
-    for food in foods:
-        if ingr in food[0]:
-            if len(food[0]) < len(food[1]) + 1:
-                free = False
-                break
+for val in foods.values():
+    free_ingredients.difference_update(val)
 
-    if free:
-        for food in foods:
-            if ingr in food[0]:
-                food[0].remove(ingr)
+n = 0
+for i in free_ingredients:
+    n += freqs[i]
 
-        allergen_free.add(ingr)
+print("First part   :", n)
 
-        print(ingr)
+foods = dict(sorted(foods.items()))
+while True:
+    changed = False
+    for allergen in foods.keys():
+        if len(foods[allergen]) == 1:
+            ingredient = list(foods[allergen])[0]
+            for other_allergen in foods.keys():
+                if allergen != other_allergen and ingredient in foods[other_allergen]:
+                    foods[other_allergen].remove(ingredient)
+                    changed = True
 
+    if not changed:
+        break
 
-print(foods)
+dangerous_list = ','.join(list(map(lambda x: str(list(x)[0]), foods.values())))
 
-
-print("First part: ", allergen_free)
-print("Second part: ", )
+print("Second part  :", dangerous_list)
