@@ -1,4 +1,4 @@
-#
+# --- Day 24: Lobby Layout ---
 
 lines = [line.strip() for line in open('input.txt')]
 
