@@ -112,4 +112,16 @@ for tile_id in tiles.keys():
 print(corners)
 
 print("First part: ", prod(corners))
+
+import math
+
+tile_map_size = round(math.sqrt(len(tiles.keys())))
+tile_map = {(0, 0): corners[0]}
+
+for y in range(0, tile_map_size):
+    for x in range(0, tile_map_size):
+        if (x, y) not in tile_map:
+
+
+
 print("Second part: ", )
